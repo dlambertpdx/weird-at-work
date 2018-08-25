@@ -33,8 +33,6 @@ app.use(passport.initialize());
 // Passport Config
 require("./config/passport.js")(passport);
 
-//app.use(express.static("public"));
-
 //Use Routes
 app.use("/api/users", users);
 app.use("/api/posts", posts);
