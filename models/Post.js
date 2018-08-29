@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 // Create Schema
 const PostSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "users" },
-  text: { type: String, required: true },
   title: { type: String, required: true },
+  text: { type: String, required: true },
   avatar: { type: String },
   likes: [{ user: { type: Schema.Types.ObjectId, ref: "users" } }],
   comments: [
