@@ -47,11 +47,10 @@ router.post("/", auth, (req, res) => {
 // @desc    Update post
 // @access  Private
 router.put("/:id", auth, (req, res) => {
-  const updatePost = {
-    title: req.body.title,
-    text: req.body.text
-  };
-  const id = { _id: req.params.id };
+  const { id } = req.params;
+  const { title, text } = req.body;
+  const userId = req.user.id;
+  const updatePost = { title, text, userId };
 
   Post.findByIdAndUpdate(id, { $set: updatePost }, { new: true })
     .then(updatePost => {
