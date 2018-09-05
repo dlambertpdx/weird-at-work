@@ -1,16 +1,11 @@
-"use strict";
+$(document).ready(() => {
+  $.getJSON("/api/posts").then(addPosts);
+});
 
-// Register
-
-// Login
-
-// Logout
-
-// Posts
-
-// Comments
-
-// Likes
-
-// Delete
-
+function addPosts(posts) {
+  // Add posts to page
+  posts.forEach(post => {
+    let newPost = $("<li>" + post.title + "</li>");
+    $(".post-item").append(newPost);
+  });
+}
